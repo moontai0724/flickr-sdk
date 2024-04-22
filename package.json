@@ -1,20 +1,20 @@
 {
-  "name": "@moontai0724/package-template",
+  "name": "@moontai0724/flickr-sdk",
   "private": false,
   "publishConfig": {
     "access": "public"
   },
   "version": "0.0.0-pre",
-  "description": "An npm package template.",
+  "description": "A TypeScript SDK for Flickr API",
   "author": "moontai0724",
-  "license": "UNLICENSED",
-  "homepage": "https://moontai0724.github.io/package-template",
+  "license": "MIT",
+  "homepage": "https://moontai0724.github.io/flickr-sdk",
   "bugs": {
-    "url": "https://github.com/moontai0724/package-template/issues"
+    "url": "https://github.com/moontai0724/flickr-sdk/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/moontai0724/package-template.git"
+    "url": "https://github.com/moontai0724/flickr-sdk.git"
   },
   "keywords": [
     "package",
