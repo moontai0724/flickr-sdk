@@ -1,5 +1,5 @@
 import { requestRest } from "common/request";
-import type { PhotoSet } from "types/photo-set";
+import type { PhotoSet } from "types/items";
 
 export interface GetListOptions extends WithApiKey {
   /**
