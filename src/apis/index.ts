@@ -1,1 +1,2 @@
-export * from "./rest";
+export * as auth from "./auth";
+export * as rest from "./rest";
