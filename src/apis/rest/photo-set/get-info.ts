@@ -1,7 +1,7 @@
 import { requestRest } from "common/request";
 import type { PhotoSet } from "types/items";
 
-export interface GetInfoOptions extends WithApiKey {
+export interface GetInfoOptions extends WithCredentials {
   /**
    * The ID of the photoset to fetch information for.
    */
@@ -37,12 +37,12 @@ export interface GetInfoResponse extends Omit<PhotoSet, "photos" | "videos"> {
  * @throws `116: Bad URL found`: One or more arguments contained a URL that has been used for abuse on Flickr.
  */
 export async function getInfo(options: GetInfoOptions) {
-  const { photoSetId, userId, apiKey } = options;
+  const { credentials, photoSetId, userId } = options;
 
   return requestRest<GetInfoResponse>(
+    credentials,
     {
       method: "flickr.photosets.getInfo",
-      api_key: apiKey,
       photoset_id: photoSetId,
       user_id: userId,
     },

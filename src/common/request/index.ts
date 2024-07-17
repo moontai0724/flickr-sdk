@@ -1,3 +1,3 @@
 export * from "./handle-rest-response";
-export * from "./prepare-search-params";
+export * from "./oauth";
 export * from "./request-rest";

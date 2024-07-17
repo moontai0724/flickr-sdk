@@ -1,3 +1,0 @@
-interface WithApiKey {
-  apiKey: string;
-}

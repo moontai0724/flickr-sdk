@@ -1,7 +1,7 @@
 import { requestRest } from "common/request";
 import type { PhotoSet } from "types/items";
 
-export interface GetListOptions extends WithApiKey {
+export interface GetListOptions extends WithCredentials {
   /**
    * The page of results to get. Currently, if this is not provided, all sets
    * are returned, but this behaviour may change in future.
@@ -72,19 +72,19 @@ export interface GetListResponse extends Paginated {
  */
 export async function getList(options: GetListOptions) {
   const {
+    credentials,
     page,
     perPage,
     photoIds,
     primaryPhotoExtras,
     sortGroups,
     userId,
-    apiKey,
   } = options;
 
   return requestRest<GetListResponse>(
+    credentials,
     {
       method: "flickr.photosets.getList",
-      api_key: apiKey,
       page: page ? page.toString() : undefined,
       per_page: perPage ? perPage.toString() : undefined,
       photo_ids: photoIds || undefined,

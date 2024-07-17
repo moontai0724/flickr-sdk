@@ -85,5 +85,8 @@
   "lint-staged": {
     "*.{ts,js}": "eslint --cache --cache-location node_modules/.cache/eslint",
     "*.**": "prettier --check --ignore-unknown"
+  },
+  "dependencies": {
+    "hash-wasm": "^4.11.0"
   }
 }
