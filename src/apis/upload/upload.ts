@@ -59,6 +59,10 @@ export interface UploadOptions extends WithCredentials {
    * public searches. If omitted, will be set based to user's default.
    */
   hidden?: boolean;
+  /**
+   * @see https://www.flickr.com/services/api/upload.async.html
+   */
+  async?: boolean;
 }
 
 export interface UploadResponse {}
@@ -72,7 +76,7 @@ export interface UploadResponse {}
  *
  * @see https://www.flickr.com/services/api/upload.api.html
  *
- * @returns The photo ID of the uploaded photo.
+ * @returns The photo ID of the uploaded photo. If async is true, the ticket ID.
  *
  * @throws `0: Video uploads are temporarily disabled`
  * @throws `2: No photo specified`: The photo required argument was missing.
@@ -114,6 +118,7 @@ export async function upload(
     safetyLevel,
     contentType,
     hidden,
+    async,
   } = options;
 
   const params = {
@@ -130,6 +135,7 @@ export async function upload(
     content_type: contentType,
     // 1 for global, 2 for hidden
     hidden: hidden !== undefined ? +hidden + 1 : undefined,
+    async: async !== undefined ? +async : undefined,
   };
   const oauthParams = await prepareParams({
     credentials,
@@ -141,19 +147,23 @@ export async function upload(
 
   const body = new FormData();
 
-  body.append("photo", photo);
   oauthParams.forEach((value, key) => body.append(key, value));
+  body.append("photo", photo);
 
   const response = await fetch(endpoint, {
     method: "POST",
     body,
   }).then(async (payload) => {
     const text = await payload.text();
-    const photoId = text.match(/<photoid>(\d+)<\/photoid>/)?.[1];
+    const id = text.match(
+      params.async
+        ? /<ticketid>(\d+)<\/ticketid>/
+        : /<photoid>(\d+)<\/photoid>/,
+    )?.[1];
 
-    if (!photoId) return Promise.reject(text);
+    if (!id) return Promise.reject(text);
 
-    return photoId;
+    return id;
   });
 
   return response;
