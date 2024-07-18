@@ -1,10 +1,15 @@
 export class RFC3986URLSearchParams extends URLSearchParams {
-  toString(): string {
-    this.sort();
+  cleanup(): RFC3986URLSearchParams {
     this.forEach((value, key) => {
       if (value === undefined) this.delete(key);
       if (value === null) this.set(key, "");
     });
+
+    return this;
+  }
+
+  toString(): string {
+    this.sort();
 
     return super
       .toString()

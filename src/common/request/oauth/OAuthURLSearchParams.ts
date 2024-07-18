@@ -40,6 +40,29 @@ const version = "1.0";
  * @see https://www.flickr.com/services/api/auth.oauth.html
  */
 export class OAuthURLSearchParams extends RFC3986URLSearchParams {
+  constructor(init: Record<PropertyKey, unknown> | URLSearchParams = {}) {
+    const filtered = Object.entries(init).reduce(
+      (params, [key, value]) => {
+        if (value === undefined) return params;
+
+        if (value === null) {
+          // eslint-disable-next-line no-param-reassign
+          params[key] = "";
+
+          return params;
+        }
+
+        // eslint-disable-next-line no-param-reassign
+        params[key] = value.toString();
+
+        return params;
+      },
+      {} as Record<PropertyKey, string>,
+    );
+
+    super(filtered);
+  }
+
   protected init(consumerKey: string) {
     this.set("oauth_nonce", nonce());
     this.set("oauth_timestamp", timestamp());
@@ -47,6 +70,7 @@ export class OAuthURLSearchParams extends RFC3986URLSearchParams {
     this.set("oauth_signature_method", signatureMethod);
     this.set("oauth_version", version);
     this.delete("oauth_signature");
+    this.cleanup();
   }
 
   /**
