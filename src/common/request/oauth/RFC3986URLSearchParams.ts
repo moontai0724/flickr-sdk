@@ -1,3 +1,5 @@
+import { encodeRFC3986 } from "./rfc-3986";
+
 export class RFC3986URLSearchParams extends URLSearchParams {
   cleanup(): RFC3986URLSearchParams {
     this.forEach((value, key) => {
@@ -11,11 +13,8 @@ export class RFC3986URLSearchParams extends URLSearchParams {
   toString(): string {
     this.sort();
 
-    return super
-      .toString()
-      .replace(
-        /[!'()*]/g,
-        (c) => `%${c.charCodeAt(0).toString(16).toUpperCase()}`,
-      );
+    return Object.entries(Object.fromEntries(this))
+      .map(([key, value]) => `${encodeRFC3986(key)}=${encodeRFC3986(value)}`)
+      .join("&");
   }
 }
