@@ -67,6 +67,17 @@ export interface UploadOptions extends WithCredentials {
 
 export interface UploadResponse {}
 
+async function handleResponse(response: Response, async?: number) {
+  const text = await response.text();
+  const id = text.match(
+    async ? /<ticketid>(\d+)<\/ticketid>/ : /<photoid>(\d+)<\/photoid>/,
+  )?.[1];
+
+  if (!id) return Promise.reject(text);
+
+  return id;
+}
+
 /**
  * Uploading Photos.
  *
@@ -153,18 +164,7 @@ export async function upload(
   const response = await fetch(endpoint, {
     method: "POST",
     body,
-  }).then(async (payload) => {
-    const text = await payload.text();
-    const id = text.match(
-      params.async
-        ? /<ticketid>(\d+)<\/ticketid>/
-        : /<photoid>(\d+)<\/photoid>/,
-    )?.[1];
-
-    if (!id) return Promise.reject(text);
-
-    return id;
-  });
+  }).then((res) => handleResponse(res, params.async));
 
   return response;
 }
