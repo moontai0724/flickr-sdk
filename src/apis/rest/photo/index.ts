@@ -5,3 +5,4 @@ export {
 } from "./delete";
 export * from "./get-info";
 export * from "./set-meta";
+export * as upload from "./upload";
