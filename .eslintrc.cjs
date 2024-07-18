@@ -43,6 +43,7 @@ module.exports = {
     "import/no-duplicates": "error",
     "import/no-unresolved": "error",
     "import/prefer-default-export": "off",
+    "typescript-sort-keys/interface": "off",
 
     // additional rules
     "@typescript-eslint/consistent-type-exports": "error",
