@@ -58,17 +58,6 @@ export interface GetListResponse extends Paginated {
  * Returns the photosets belonging to the specified user.
  *
  * @see https://www.flickr.com/services/api/flickr.photosets.getList.html
- *
- * @throws `1: User not found`: The user NSID passed was not a valid user NSID and the calling user was not logged in.
- * @throws `2: Continuation key is invalid or expired`: The continuation key passed was not valid or has already expired.
- * @throws `100: Invalid API Key`: The API key passed was not valid or has expired.
- * @throws `105: Service currently unavailable`: The requested service is temporarily unavailable.
- * @throws `106: Write operation failed`: The requested operation failed due to a temporary issue.
- * @throws `111: Format "xxx" not found`: The requested response format was not found.
- * @throws `112: Method "xxx" not found`: The requested method was not found.
- * @throws `114: Invalid SOAP envelope`: The SOAP envelope send in the request could not be parsed.
- * @throws `115: Invalid XML-RPC Method Call`: The XML-RPC request document could not be parsed.
- * @throws `116: Bad URL found`: One or more arguments contained a URL that has been used for abuse on Flickr.
  */
 export async function getList(options: GetListOptions) {
   const {

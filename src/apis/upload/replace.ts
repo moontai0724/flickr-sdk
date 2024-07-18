@@ -66,8 +66,6 @@ async function handleResponse(response: Response, async?: number) {
  *
  * @returns The photo ID of the replaceed photo. If async is true, the ticket
  * ID.
- *
- * @throws `0: Video replaces are temporarily disabled`
  */
 export async function replace(options: ReplaceOptions) {
   const endpoint = "https://up.flickr.com/services/replace";
