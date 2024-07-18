@@ -17,7 +17,7 @@ export function camelCaseObject<T extends object>(
   target: T,
 ): CamelCaseObject<T>;
 export function camelCaseObject(target: object): unknown {
-  if (typeof target !== "object") {
+  if (typeof target !== "object" || target === null) {
     return target;
   }
 
