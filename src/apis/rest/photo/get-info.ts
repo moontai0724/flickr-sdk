@@ -35,13 +35,13 @@ export interface GetInfoResponse extends Photo {}
 export async function getInfo(options: GetInfoOptions) {
   const { credentials, photoId, secret } = options;
 
-  return requestRest<GetInfoResponse>(
+  return requestRest<GetInfoResponse>({
     credentials,
-    {
+    params: {
       method: "flickr.photos.getInfo",
       photo_id: photoId,
       secret: secret || undefined,
     },
-    "photo",
-  );
+    key: "photo",
+  });
 }

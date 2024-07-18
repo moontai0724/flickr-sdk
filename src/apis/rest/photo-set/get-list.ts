@@ -81,9 +81,9 @@ export async function getList(options: GetListOptions) {
     userId,
   } = options;
 
-  return requestRest<GetListResponse>(
+  return requestRest<GetListResponse>({
     credentials,
-    {
+    params: {
       method: "flickr.photosets.getList",
       page: page ? page.toString() : undefined,
       per_page: perPage ? perPage.toString() : undefined,
@@ -92,6 +92,6 @@ export async function getList(options: GetListOptions) {
       sort_groups: sortGroups || undefined,
       user_id: userId || undefined,
     },
-    "photosets",
-  );
+    key: "photosets",
+  });
 }

@@ -39,13 +39,13 @@ export interface GetInfoResponse extends Omit<PhotoSet, "photos" | "videos"> {
 export async function getInfo(options: GetInfoOptions) {
   const { credentials, photoSetId, userId } = options;
 
-  return requestRest<GetInfoResponse>(
+  return requestRest<GetInfoResponse>({
     credentials,
-    {
+    params: {
       method: "flickr.photosets.getInfo",
       photoset_id: photoSetId,
       user_id: userId,
     },
-    "photoset",
-  );
+    key: "photoset",
+  });
 }
