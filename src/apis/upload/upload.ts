@@ -70,7 +70,7 @@ export interface UploadResponse {}
 async function handleResponse(response: Response, async?: number) {
   const text = await response.text();
   const id = text.match(
-    async ? /<ticketid>(\d+)<\/ticketid>/ : /<photoid>(\d+)<\/photoid>/,
+    async ? /<ticketid>([\w-]+)<\/ticketid>/ : /<photoid>(\d+)<\/photoid>/,
   )?.[1];
 
   if (!id) return Promise.reject(text);
