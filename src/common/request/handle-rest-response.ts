@@ -5,7 +5,10 @@ export async function handleRestResponse<T, R extends Response = Response>(
   key?: string,
 ): Promise<T>;
 export async function handleRestResponse(response: Response, key?: string) {
-  const context = await response.json();
+  const text = await response.text();
+  const context = await (async () => JSON.parse(text))().catch(() =>
+    Promise.reject(text),
+  );
 
   if ("code" in context) {
     // Error Code
