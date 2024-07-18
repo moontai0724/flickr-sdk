@@ -4,3 +4,4 @@ export {
   type DeleteResponse,
 } from "./delete";
 export * from "./get-info";
+export * from "./set-meta";
