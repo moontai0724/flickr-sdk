@@ -1,4 +1,5 @@
 import { prepareParams } from "common/request";
+import type { WithCredentials } from "types";
 
 export enum UploadSafetyLevel {
   Safe = 1,

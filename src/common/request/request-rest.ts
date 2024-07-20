@@ -1,3 +1,5 @@
+import type { Credentials } from "types";
+
 import { handleRestResponse } from "./handle-rest-response";
 import { prepareParams } from "./prepare-params";
 

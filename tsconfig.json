@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ES2018",
     "module": "ESNext",
-    "baseUrl": "src",
+    "baseUrl": "build",
     "moduleResolution": "Node",
     "noEmit": true,
     "resolveJsonModule": true,

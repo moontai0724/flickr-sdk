@@ -1,3 +1,5 @@
+import type { Credentials } from "types";
+
 import { OAuthURLSearchParams } from "./oauth";
 
 export interface PrepareParamsOptions {

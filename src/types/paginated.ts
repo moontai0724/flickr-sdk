@@ -1,4 +1,4 @@
-interface Paginated {
+export interface Paginated {
   /**
    * Current page number.
    */

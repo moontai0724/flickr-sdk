@@ -1,5 +1,5 @@
 import { requestRest } from "common/request";
-import type { PhotoSet } from "types/items";
+import type { PhotoSet, WithCredentials } from "types";
 
 export interface GetInfoOptions extends WithCredentials {
   /**

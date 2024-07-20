@@ -1,5 +1,5 @@
 import { requestRest } from "common/request";
-import type { PhotoSet } from "types/items";
+import type { Paginated, PhotoSet, WithCredentials } from "types";
 
 export interface GetListOptions extends WithCredentials {
   /**

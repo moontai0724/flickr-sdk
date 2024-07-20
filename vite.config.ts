@@ -2,7 +2,6 @@
 import { readdirSync } from "fs";
 import { resolve } from "path";
 import { defineConfig } from "vite";
-import dts from "vite-plugin-dts";
 
 import packageJson from "./package.json";
 
@@ -31,10 +30,4 @@ export default defineConfig({
   resolve: {
     alias,
   },
-  plugins: [
-    dts({
-      tsconfigPath: resolve(__dirname, "src/tsconfig.build.json"),
-      rollupTypes: true,
-    }),
-  ],
 });

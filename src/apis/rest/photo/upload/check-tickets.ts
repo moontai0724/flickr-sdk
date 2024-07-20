@@ -1,4 +1,5 @@
 import { requestRest } from "common/request";
+import type { WithCredentials } from "types";
 
 export enum CheckTicketsStatus {
   NotCompleted = 0,

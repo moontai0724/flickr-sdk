@@ -1,4 +1,5 @@
 import { requestRest } from "common/request";
+import type { WithOAuthCredentials } from "types";
 
 export interface DeleteOptions extends WithOAuthCredentials {
   /**

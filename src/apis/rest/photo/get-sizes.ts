@@ -1,5 +1,5 @@
 import { requestRest } from "common/request";
-import type { PhotoSize } from "types/items";
+import type { NumericBoolean, PhotoSize, WithCredentials } from "types";
 
 export interface GetSizesOptions extends WithCredentials {
   /**

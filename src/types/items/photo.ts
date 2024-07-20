@@ -1,4 +1,5 @@
-/* eslint-disable typescript-sort-keys/interface */
+import type { NumericBoolean } from "types";
+
 /**
  * The photo object of the response.
  *

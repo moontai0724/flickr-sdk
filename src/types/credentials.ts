@@ -1,10 +1,10 @@
-interface WithApiKey {
+export interface WithApiKey {
   credentials?: {
     apiKey: string;
   };
 }
 
-interface WithOAuthCredentials {
+export interface WithOAuthCredentials {
   credentials?: {
     /**
      * API key, a.k.a. consumer key, means your app key.
@@ -25,10 +25,10 @@ interface WithOAuthCredentials {
   };
 }
 
-type Credentials =
+export type Credentials =
   | WithApiKey["credentials"]
   | WithOAuthCredentials["credentials"];
 
-interface WithCredentials {
+export interface WithCredentials {
   credentials?: Credentials;
 }
