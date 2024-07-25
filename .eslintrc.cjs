@@ -28,9 +28,7 @@ module.exports = {
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
-    project: "tsconfig.json",
-    tsconfigRootDir: __dirname,
-    sourceType: "module",
+    project: ["./tsconfig.json", "./src/tsconfig.json"],
   },
   rules: {
     "no-console": "off",
@@ -43,6 +41,7 @@ module.exports = {
     "import/no-duplicates": "error",
     "import/no-unresolved": "error",
     "import/prefer-default-export": "off",
+    "typescript-sort-keys/interface": "off",
 
     // additional rules
     "@typescript-eslint/consistent-type-exports": "error",
@@ -86,7 +85,7 @@ module.exports = {
     "import/resolver": {
       typescript: {
         alwaysTryTypes: true,
-        project: ["./tsconfig.json"],
+        project: ["./tsconfig.json", "./src/tsconfig.json"],
       },
     },
   },

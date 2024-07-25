@@ -1,9 +1,9 @@
-name: "CD: Deploy when pushes to release"
+name: "CD: Deploy when pushes to main"
 
 on:
   push:
     branches:
-      - release
+      - main
 
 jobs:
   test-and-upload-coverage:
@@ -22,7 +22,7 @@ jobs:
         name: Install pnpm
         id: pnpm-install
         with:
-          version: 7
+          version: 8
           run_install: false
 
       - name: Get pnpm store directory
@@ -73,7 +73,7 @@ jobs:
         name: Install pnpm
         id: pnpm-install
         with:
-          version: 7
+          version: 8
           run_install: false
 
       - name: Get pnpm store directory
