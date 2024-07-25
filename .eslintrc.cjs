@@ -28,9 +28,7 @@ module.exports = {
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
-    project: "tsconfig.json",
-    tsconfigRootDir: __dirname,
-    sourceType: "module",
+    project: ["./tsconfig.json", "./src/tsconfig.json"],
   },
   rules: {
     "no-console": "off",
@@ -87,7 +85,7 @@ module.exports = {
     "import/resolver": {
       typescript: {
         alwaysTryTypes: true,
-        project: ["./tsconfig.json"],
+        project: ["./tsconfig.json", "./src/tsconfig.json"],
       },
     },
   },

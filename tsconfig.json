@@ -15,7 +15,6 @@
     "noImplicitAny": true,
     "skipLibCheck": true
   },
-  "exclude": ["**/*.test.ts", "**/*.spec.ts"],
   "typeAcquisition": {
     "enable": true
   }

@@ -18,7 +18,7 @@ export default defineConfig({
     reporters: ["default", "junit"],
     typecheck: {
       checker: "tsc",
-      tsconfig: "./tests/tsconfig.json",
+      tsconfig: "./src/tsconfig.json",
     },
   },
 });

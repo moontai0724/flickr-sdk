@@ -39,7 +39,7 @@
   "scripts": {
     "build": "npm run build:clean && npm run build:ts && npm run build:bundle && npm run docs",
     "build:clean": "rm -rf dist build docs",
-    "build:ts": "tsc -b src/tsconfig.build.json && tsc-alias -p tsconfig.json",
+    "build:ts": "tsc -b tsconfig.build.json && tsc-alias -p tsconfig.build.json",
     "build:bundle": "vite build",
     "docs": "typedoc --plugin typedoc-plugin-missing-exports src/index.ts",
     "test": "vitest",

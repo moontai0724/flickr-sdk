@@ -1,0 +1,14 @@
+{
+  "extends": "./src/tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "declaration": true,
+    "rootDir": "src",
+    "baseUrl": "src",
+    "outDir": "build"
+  },
+  "tsc-alias": {
+    "resolveFullPaths": true,
+    "verbose": true
+  }
+}
