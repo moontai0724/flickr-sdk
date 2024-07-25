@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.0.0-pre",
+  "version": "1.0.0",
   "description": "A TypeScript SDK for Flickr API",
   "author": "moontai0724",
   "license": "MIT",
