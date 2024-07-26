@@ -85,7 +85,7 @@ export interface PhotoSet {
    */
   dateCreate: string;
   /**
-   * Unix timestamp of the last update.
+   * Unix timestamp of the last update. May be 0.
    * @example 1671299158
    * @see https://www.flickr.com/services/api/misc.dates.html
    */
@@ -95,12 +95,12 @@ export interface PhotoSet {
    */
   sortingOptionId: string;
   /**
-   * Amount of photos in the set. Present if any item is photo.
+   * Amount of photos in the set.
    * @example 63
    */
   photos: number;
   /**
-   * Amount of videos in the set. Only present if the whole set is video.
+   * Amount of videos in the set.
    * @example 0
    */
   videos: number;
