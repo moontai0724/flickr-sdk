@@ -66,7 +66,7 @@ export interface UploadOptions extends WithCredentials {
   async?: boolean;
 }
 
-export interface UploadResponse {}
+export type UploadResponse = string;
 
 async function handleResponse(response: Response, async?: number) {
   const text = await response.text();
@@ -86,29 +86,25 @@ async function handleResponse(response: Response, async?: number) {
  * [flickr.people.getUploadStatus](https://www.flickr.com/services/api/flickr.people.getUploadStatus.html)
  * method in the regular API to obtain file and bandwidth limits for the user.
  *
- * @see https://www.flickr.com/services/api/upload.api.html
- *
  * @returns The photo ID of the uploaded photo. If async is true, the ticket ID.
+ *
+ * @see https://www.flickr.com/services/api/upload.api.html
  */
-export async function upload(
-  options: UploadOptions,
-): Promise<string | null | undefined> {
+export async function upload({
+  credentials,
+  photo,
+  title,
+  description,
+  tags = [],
+  isPublic,
+  isFriend,
+  isFamily,
+  safetyLevel,
+  contentType,
+  hidden,
+  async,
+}: UploadOptions): Promise<UploadResponse> {
   const endpoint = "https://up.flickr.com/services/upload";
-
-  const {
-    credentials,
-    photo,
-    title,
-    description,
-    tags = [],
-    isPublic,
-    isFriend,
-    isFamily,
-    safetyLevel,
-    contentType,
-    hidden,
-    async,
-  } = options;
 
   const params = {
     title,
