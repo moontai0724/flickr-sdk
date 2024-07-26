@@ -30,6 +30,7 @@ export async function addPhoto({
 }: AddPhotoOptions) {
   return requestRest<AddPhotoResponse>({
     credentials,
+    method: "POST",
     params: {
       method: "flickr.photosets.addPhoto",
       photoset_id: photosetId,
