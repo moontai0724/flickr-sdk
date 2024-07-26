@@ -11,7 +11,8 @@ export interface CreateOptions extends WithOAuthCredentials {
    */
   description?: string;
   /**
-   * The id of the photo to represent this set. The photo must belong to the calling user.
+   * The id of the photo to represent this set. The photo must belong to the
+   * calling user.
    */
   primaryPhotoId: string;
 }
@@ -35,6 +36,7 @@ export async function create(options: CreateOptions) {
 
   return requestRest<CreateResponse>({
     credentials,
+    method: "POST",
     params: {
       method: "flickr.photosets.create",
       title,
