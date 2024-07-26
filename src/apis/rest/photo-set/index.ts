@@ -6,5 +6,6 @@ export {
   type DeleteResponse,
 } from "./delete";
 export * from "./edit-meta";
+export * from "./edit-photos";
 export * from "./get-info";
 export * from "./get-list";
