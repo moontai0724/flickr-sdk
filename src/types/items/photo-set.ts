@@ -1,4 +1,7 @@
 /* eslint-disable typescript-sort-keys/interface */
+
+import type { NumericBoolean } from "types/numberic-boolean";
+
 /**
  * The photoset object of the response.
  *
@@ -92,19 +95,19 @@ export interface PhotoSet {
    */
   sortingOptionId: string;
   /**
-   * Amount of photos in the set.
+   * Amount of photos in the set. Present if any item is photo.
    * @example 63
    */
   photos: number;
   /**
-   * Amount of videos in the set.
+   * Amount of videos in the set. Only present if the whole set is video.
    * @example 0
    */
   videos: number;
   /**
    * @example 1
    */
-  visibilityCanSeeSet: number;
+  visibilityCanSeeSet: NumericBoolean;
   /**
    * @example 0
    */
