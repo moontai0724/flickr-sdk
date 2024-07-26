@@ -31,9 +31,12 @@ export interface CreateResponse extends Pick<PhotoSet, "id"> {
  *
  * @see https://www.flickr.com/services/api/flickr.photosets.create.html
  */
-export async function create(options: CreateOptions) {
-  const { credentials, title, description, primaryPhotoId } = options;
-
+export async function create({
+  credentials,
+  title,
+  description,
+  primaryPhotoId,
+}: CreateOptions) {
   return requestRest<CreateResponse>({
     credentials,
     method: "POST",
