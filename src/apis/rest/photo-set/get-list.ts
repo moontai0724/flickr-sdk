@@ -1,5 +1,5 @@
 import { requestRest } from "common/request";
-import type { License, Paginated, Photo, WithCredentials } from "types";
+import type { License, Paginated, PhotoSet, WithCredentials } from "types";
 
 export type PrimaryPhotoExtras =
   | "license"
@@ -59,8 +59,7 @@ export interface GetListOptions extends WithCredentials {
   sortGroups?: string[];
 }
 
-interface ListPhotoSetItem {
-  extras: Pick<Photo, "license" | "dateuploaded">;
+interface ListPhotoSetItem extends PhotoSet {
   primaryPhotoExtras?: {
     license: License;
     /**
