@@ -1,5 +1,5 @@
 import { requestRest } from "common/request";
-import type { WithOAuthCredentials } from "types";
+import type { SuccessWithoutBodyResponse, WithOAuthCredentials } from "types";
 
 export interface OrderSetsOptions extends WithOAuthCredentials {
   /**
@@ -10,7 +10,7 @@ export interface OrderSetsOptions extends WithOAuthCredentials {
   photosetIds: string[];
 }
 
-export type OrderSetsResponse = void;
+export interface OrderSetsResponse extends SuccessWithoutBodyResponse {}
 
 /**
  * Set the order of photosets for the calling user.
