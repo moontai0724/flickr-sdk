@@ -15,3 +15,4 @@ export * from "./order-sets";
 export * from "./remove-photo";
 export * from "./remove-photos";
 export * from "./reorder-photos";
+export * from "./set-primary-photo";
