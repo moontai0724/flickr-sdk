@@ -1,5 +1,5 @@
 import { requestRest } from "common/request";
-import type { WithOAuthCredentials } from "types";
+import type { SuccessWithoutBodyResponse, WithOAuthCredentials } from "types";
 
 export interface RemovePhotosOptions extends WithOAuthCredentials {
   /**
@@ -12,7 +12,7 @@ export interface RemovePhotosOptions extends WithOAuthCredentials {
   photoIds: string[];
 }
 
-export type RemovePhotosResponse = void;
+export interface RemovePhotosResponse extends SuccessWithoutBodyResponse {}
 
 /**
  * Remove multiple photos from a photoset.

@@ -1,5 +1,5 @@
 import { requestRest } from "common/request";
-import type { WithOAuthCredentials } from "types";
+import type { SuccessWithoutBodyResponse, WithOAuthCredentials } from "types";
 
 export interface AddPhotoOptions extends WithOAuthCredentials {
   /**
@@ -12,7 +12,7 @@ export interface AddPhotoOptions extends WithOAuthCredentials {
   photoId: string;
 }
 
-export type AddPhotoResponse = void;
+export interface AddPhotoResponse extends SuccessWithoutBodyResponse {}
 
 /**
  * Add a photo to the end of an existing photoset.

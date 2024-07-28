@@ -1,5 +1,5 @@
 import { requestRest } from "common/request";
-import type { WithOAuthCredentials } from "types";
+import type { SuccessWithoutBodyResponse, WithOAuthCredentials } from "types";
 
 export interface EditPhotosOptions extends WithOAuthCredentials {
   /**
@@ -24,7 +24,7 @@ export interface EditPhotosOptions extends WithOAuthCredentials {
   photoIds: string[];
 }
 
-export type EditPhotosResponse = void;
+export interface EditPhotosResponse extends SuccessWithoutBodyResponse {}
 
 /**
  * Modify the photos in a photoset. Use this method to add, remove and re-order
