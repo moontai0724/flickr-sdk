@@ -12,3 +12,4 @@ export * from "./get-info";
 export * from "./get-list";
 export * from "./get-photos";
 export * from "./order-sets";
+export * from "./remove-photo";
