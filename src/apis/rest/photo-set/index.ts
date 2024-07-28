@@ -10,3 +10,4 @@ export * from "./edit-photos";
 export * from "./get-context";
 export * from "./get-info";
 export * from "./get-list";
+export * from "./get-photos";

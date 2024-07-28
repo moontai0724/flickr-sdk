@@ -1,6 +1,5 @@
-/* eslint-disable typescript-sort-keys/interface */
-
-import type { NumericBoolean } from "types/numberic-boolean";
+import type { NumericBoolean } from "../numberic-boolean";
+import type { SortingOption } from "../options/sorting";
 
 /**
  * The photoset object of the response.
@@ -93,7 +92,7 @@ export interface PhotoSet {
   /**
    * @example "manual-add-to-end"
    */
-  sortingOptionId: string;
+  sortingOptionId: SortingOption;
   /**
    * Amount of photos in the set.
    * @example 63
