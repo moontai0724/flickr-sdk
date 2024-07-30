@@ -1,5 +1,9 @@
 import { requestRest } from "common/request";
-import type { Context, WithCredentials } from "types";
+import type {
+  Context,
+  SuccessWithoutBodyResponse,
+  WithCredentials,
+} from "types";
 
 export interface GetContextOptions extends WithCredentials {
   /**
@@ -12,7 +16,7 @@ export interface GetContextOptions extends WithCredentials {
   photosetId: string;
 }
 
-export interface GetContextResponse {
+export interface GetContextResponse extends SuccessWithoutBodyResponse {
   /**
    * Total amount of items in the set.
    * @example "145"
