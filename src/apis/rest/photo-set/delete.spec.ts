@@ -1,7 +1,7 @@
 import * as fs from "node:fs";
 import * as path from "node:path";
 
-import { afterAll, beforeAll, beforeEach, expect, it } from "vitest";
+import { afterAll, beforeAll, expect, it } from "vitest";
 
 import { oauthCredential as credentials, user } from "@/tests/config";
 
@@ -10,8 +10,10 @@ import { deletePhoto } from "../photo/delete";
 import { create } from "./create";
 import { deletePhotoset } from "./delete";
 import { getList } from "./get-list";
+import { orderSets } from "./order-sets";
 
 let photoIds: string[];
+let photosetIds: string[];
 
 beforeAll(async () => {
   const files = ["月太-0001.jpg", "月太-0032.jpg", "月太-0035.jpg"].map(
@@ -30,6 +32,21 @@ beforeAll(async () => {
       }),
     ),
   );
+
+  photosetIds = await Promise.all(
+    photoIds.map(async (photoId, index) =>
+      create({
+        credentials,
+        title: `Delete Set Test ${index}`,
+        primaryPhotoId: photoId,
+      }),
+    ),
+  ).then((photosets) => photosets.map((photoset) => photoset.id));
+
+  await orderSets({
+    credentials,
+    photosetIds,
+  });
 });
 
 afterAll(async () => {
@@ -41,21 +58,6 @@ afterAll(async () => {
       }),
     ),
   );
-});
-
-let photosetIds: string[];
-
-beforeEach(async () => {
-  // prepare photosets
-  photosetIds = await Promise.all(
-    photoIds.map(async (photoId, index) =>
-      create({
-        credentials,
-        title: `Delete Set Test ${index}`,
-        primaryPhotoId: photoId,
-      }),
-    ),
-  ).then((photosets) => photosets.map((photoset) => photoset.id));
 });
 
 it("should delete photoset", async () => {
