@@ -1,3 +1,27 @@
+# [1.1.0](https://github.com/moontai0724/flickr-sdk/compare/v1.0.0...v1.1.0) (2024-07-31)
+
+
+### Bug Fixes
+
+* **photosets.create:** use correct http method ([dfce8c5](https://github.com/moontai0724/flickr-sdk/commit/dfce8c57e3e89f269bcf05b976dfcd036745e64d))
+* **photosets.getList:** correct response type ([cb12d94](https://github.com/moontai0724/flickr-sdk/commit/cb12d94d3ef6088c0f5e40c68c6b3bdcb81c999d))
+
+
+### Features
+
+* **photosets.addPhoto:** implement apis ([89b528b](https://github.com/moontai0724/flickr-sdk/commit/89b528b1368bd152caa0092c67a87e9dba6735ec))
+* **photosets.create:** implement apis ([87bbdb1](https://github.com/moontai0724/flickr-sdk/commit/87bbdb1fca890867f606e30ba057a27563a3b72d))
+* **photosets.delete:** implement apis ([44fa8ed](https://github.com/moontai0724/flickr-sdk/commit/44fa8ed6b9db6be85ed4e71fb18426fa4b096e69))
+* **photosets.editMeta:** implement apis ([0a4f1a2](https://github.com/moontai0724/flickr-sdk/commit/0a4f1a24cd71f8869f39c49b97196192c210a50b))
+* **photosets.editPhotos:** implement apis ([3db23bf](https://github.com/moontai0724/flickr-sdk/commit/3db23bf9804ca1fa002bfa1b43863571dae7a885))
+* **photosets.getContext:** implement apis ([f305ed0](https://github.com/moontai0724/flickr-sdk/commit/f305ed006b174b2b72f6656f1c36857fa8faf5ce))
+* **photosets.getPhotos:** implement api and refactor used types ([420ff28](https://github.com/moontai0724/flickr-sdk/commit/420ff28f640c4570ed614d5ca1865acd68db3786))
+* **photosets.orderSets:** implement api ([1090184](https://github.com/moontai0724/flickr-sdk/commit/109018496b59ce6f35b59f1d3b384f2577b2bd10))
+* **photosets.removePhoto:** implement api and tests ([bcd06b3](https://github.com/moontai0724/flickr-sdk/commit/bcd06b36fe34592838e9dfa12239f5794587328a))
+* **photosets.removePhotos:** implement api and tests ([e368e76](https://github.com/moontai0724/flickr-sdk/commit/e368e76513170567ce1dd68a5bcfcedf3d4f111b))
+* **photosets.reorderPhotos:** implement api and tests ([f7d84c4](https://github.com/moontai0724/flickr-sdk/commit/f7d84c4c638991b681ffb8a10c499220ce234c67))
+* **photosets.setPrimaryPhoto:** implement api and tests ([dbdcbb9](https://github.com/moontai0724/flickr-sdk/commit/dbdcbb98ae6e7954b2d70d0506bbf9fb7b60ff2b))
+
 # 1.0.0 (2024-07-25)
 
 
