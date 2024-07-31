@@ -40,7 +40,9 @@ export interface GetListOptions extends WithCredentials {
    * sort_groups will dictate the order that the groups are returned in. Only
    * available if continuation is used. The resulting output will include a
    * "sort_group" parameter indicating the sort_group that each set is part of,
-   * or null if not applicable
+   * or null if not applicable.
+   *
+   * note. idk wtf is this
    */
   sortGroups?: string[];
 }

@@ -10,7 +10,9 @@ export default defineConfig({
       include: ["src/**/*.ts"],
       reportOnFailure: true,
       reporter: ["text", "text-summary", "json", "html", "cobertura"],
+      exclude: ["**/index.ts"],
     },
+    fileParallelism: false,
     outputFile: {
       junit: "./coverage/junit-report.xml",
     },
