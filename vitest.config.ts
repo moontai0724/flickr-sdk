@@ -8,11 +8,17 @@ export default defineConfig({
     coverage: {
       enabled: true,
       include: ["src/**/*.ts"],
-      reportOnFailure: true,
+      reportOnFailure: false,
       reporter: ["text", "text-summary", "json", "html", "cobertura"],
       exclude: ["**/index.ts"],
     },
+    bail: 1,
     fileParallelism: false,
+    poolOptions: {
+      threads: {
+        maxThreads: 1,
+      },
+    },
     outputFile: {
       junit: "./coverage/junit-report.xml",
     },
