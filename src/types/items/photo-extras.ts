@@ -45,7 +45,7 @@ export interface PhotoExtras {
    * @example 66
    * @see https://www.flickr.com/services/api/misc.buddyicons.html
    */
-  iconfarm: string;
+  iconfarm: string | number;
   /**
    * The number of views of the photo.
    * @example 550
@@ -170,5 +170,5 @@ export interface PhotoExtras {
    * Should be the user alias ID of the owner of the set.
    * @example "moontai0724"
    */
-  pathalias: string;
+  pathalias: string | null;
 }

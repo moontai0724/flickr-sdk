@@ -1,5 +1,6 @@
 import { requestRest } from "common/request";
 import type {
+  NumericBoolean,
   Paginated,
   PhotoExtras,
   PhotoExtrasOption,
@@ -44,8 +45,12 @@ export interface GetListOptions extends WithCredentials {
   sortGroups?: string[];
 }
 
-interface ListPhotoSetItem extends PhotoSet {
-  primaryPhotoExtras?: PhotoExtras;
+interface GetListPhotoExtras extends PhotoExtras {
+  iconfarm: number;
+}
+
+interface GetListPhotosetItem extends PhotoSet {
+  primaryPhotoExtras?: GetListPhotoExtras;
   /**
    * A list of photo ids. If specified, each returned set will include a list of
    * these photo ids that are present in the set as "has_requested_photos"
@@ -54,7 +59,7 @@ interface ListPhotoSetItem extends PhotoSet {
 }
 
 export interface GetListResponse extends Paginated {
-  cancreate: boolean;
+  cancreate: NumericBoolean;
   /**
    * List of photosets.
    *
@@ -62,7 +67,7 @@ export interface GetListResponse extends Paginated {
    * the newest set is first. Applications displaying photosets should respect
    * the user's ordering.
    */
-  photoset: ListPhotoSetItem[]; // TODO: make this type correspond to the request
+  photoset: GetListPhotosetItem[]; // TODO: make this type correspond to the request
 }
 
 /**
