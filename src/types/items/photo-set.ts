@@ -1,4 +1,6 @@
-/* eslint-disable typescript-sort-keys/interface */
+import type { NumericBoolean } from "../numberic-boolean";
+import type { SortingOption } from "../options/sorting";
+
 /**
  * The photoset object of the response.
  *
@@ -82,7 +84,7 @@ export interface PhotoSet {
    */
   dateCreate: string;
   /**
-   * Unix timestamp of the last update.
+   * Unix timestamp of the last update. May be 0.
    * @example 1671299158
    * @see https://www.flickr.com/services/api/misc.dates.html
    */
@@ -90,7 +92,7 @@ export interface PhotoSet {
   /**
    * @example "manual-add-to-end"
    */
-  sortingOptionId: string;
+  sortingOptionId: SortingOption;
   /**
    * Amount of photos in the set.
    * @example 63
@@ -104,7 +106,7 @@ export interface PhotoSet {
   /**
    * @example 1
    */
-  visibilityCanSeeSet: number;
+  visibilityCanSeeSet: NumericBoolean;
   /**
    * @example 0
    */

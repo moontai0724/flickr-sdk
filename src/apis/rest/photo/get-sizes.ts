@@ -21,9 +21,7 @@ export interface GetSizesResponse {
  *
  * @see https://www.flickr.com/services/api/flickr.photos.getSizes.html
  */
-export async function getSizes(options: GetSizesOptions) {
-  const { credentials, photoId } = options;
-
+export async function getSizes({ credentials, photoId }: GetSizesOptions) {
   return requestRest<GetSizesResponse>({
     credentials,
     params: {

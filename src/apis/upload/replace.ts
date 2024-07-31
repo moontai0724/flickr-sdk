@@ -23,8 +23,6 @@ export interface ReplaceOptions extends WithCredentials {
   async?: boolean;
 }
 
-export interface ReplaceResponse {}
-
 function parsePhotoInformation(text: string) {
   const results = text.match(
     /<photoid( secret="(?<secret>[\w]+?)")?( originalsecret="(?<originalSecret>[\w]+?)")?>(?<photoId>\d+)<\/photoid>/,
@@ -56,6 +54,8 @@ async function handleResponse(response: Response, async?: number) {
   return info;
 }
 
+export type ReplaceResponse = Awaited<ReturnType<typeof handleResponse>>;
+
 /**
  * Replacing Photos.
  *
@@ -63,15 +63,18 @@ async function handleResponse(response: Response, async?: number) {
  * [flickr.people.getUploadStatus](https://www.flickr.com/services/api/flickr.people.getUploadStatus.html)
  * method in the regular API to obtain file and bandwidth limits for the user.
  *
- * @see https://www.flickr.com/services/api/replace.api.html
- *
  * @returns The photo ID of the replaceed photo. If async is true, the ticket
  * ID.
+ *
+ * @see https://www.flickr.com/services/api/replace.api.html
  */
-export async function replace(options: ReplaceOptions) {
+export async function replace({
+  credentials,
+  photo,
+  photoId,
+  async,
+}: ReplaceOptions) {
   const endpoint = "https://up.flickr.com/services/replace";
-
-  const { credentials, photo, photoId, async } = options;
 
   const params = {
     photo_id: photoId,

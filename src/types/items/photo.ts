@@ -1,4 +1,4 @@
-import type { NumericBoolean } from "types";
+import type { NumericBoolean, Visibility } from "types";
 
 /**
  * The photo object of the response.
@@ -109,11 +109,7 @@ export interface Photo {
    * @example ""
    */
   description: string;
-  visibility: {
-    ispublic: NumericBoolean;
-    isfriend: NumericBoolean;
-    isfamily: NumericBoolean;
-  };
+  visibility: Visibility;
   /**
    * (From Official) A photo which was taken some time in June 1980 would have a
    * taken date if `1980-06-01 00:00:00` and a granularity of 4. In the future,

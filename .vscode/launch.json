@@ -8,7 +8,26 @@
       "name": "tsx",
       "type": "node",
       "request": "launch",
-      "args": ["tsx", "watch", "${file}"],
+      "args": [
+        "-y",
+        "dotenv-cli",
+        "--",
+        "npx",
+        "-y",
+        "tsx",
+        "watch",
+        "${file}"
+      ],
+      "runtimeExecutable": "npx",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": ["<node_internals>/**", "${workspaceFolder}/node_modules/**"]
+    },
+    {
+      "name": "test",
+      "type": "node",
+      "request": "launch",
+      "args": ["-y", "dotenv-cli", "--", "vitest", "${file}"],
       "runtimeExecutable": "npx",
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen",

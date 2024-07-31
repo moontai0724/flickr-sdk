@@ -22,15 +22,17 @@ export interface GetInfoResponse extends Photo {}
  *
  * @see https://www.flickr.com/services/api/flickr.photos.getInfo.html
  */
-export async function getInfo(options: GetInfoOptions) {
-  const { credentials, photoId, secret } = options;
-
+export async function getInfo({
+  credentials,
+  photoId,
+  secret,
+}: GetInfoOptions) {
   return requestRest<GetInfoResponse>({
     credentials,
     params: {
       method: "flickr.photos.getInfo",
       photo_id: photoId,
-      secret: secret || undefined,
+      secret,
     },
     key: "photo",
   });

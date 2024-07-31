@@ -1,1 +1,1 @@
-export * as apis from "./apis";
+export * as flickrApis from "./apis";

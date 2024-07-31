@@ -46,14 +46,15 @@ export interface CheckTicketsResponse {
  *
  * @see https://www.flickr.com/services/api/flickr.photos.upload.checkTickets.html
  */
-export async function checkTickets(options: CheckTicketsOptions) {
-  const { credentials } = options;
-
+export async function checkTickets({
+  credentials,
+  tickets,
+}: CheckTicketsOptions) {
   return requestRest<CheckTicketsResponse>({
     credentials,
     params: {
       method: "flickr.photos.upload.checkTickets",
-      tickets: options.tickets.join(","),
+      tickets: tickets.join(","),
     },
     key: "uploader",
   });

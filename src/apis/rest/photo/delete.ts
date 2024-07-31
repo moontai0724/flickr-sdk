@@ -1,5 +1,5 @@
 import { requestRest } from "common/request";
-import type { WithOAuthCredentials } from "types";
+import type { SuccessWithoutBodyResponse, WithOAuthCredentials } from "types";
 
 export interface DeleteOptions extends WithOAuthCredentials {
   /**
@@ -8,16 +8,18 @@ export interface DeleteOptions extends WithOAuthCredentials {
   photoId: string;
 }
 
-export interface DeleteResponse {}
+export interface DeleteResponse extends SuccessWithoutBodyResponse {}
 
 /**
  * Delete a photo from flickr.
  *
+ * This method requires authentication with 'delete' permission.
+ *
+ * @returns empty success response if it completes without error.
+ *
  * @see https://www.flickr.com/services/api/flickr.photos.delete.html
  */
-export async function deletePhoto(options: DeleteOptions) {
-  const { credentials, photoId } = options;
-
+export async function deletePhoto({ credentials, photoId }: DeleteOptions) {
   return requestRest<DeleteResponse>({
     credentials,
     method: "POST",

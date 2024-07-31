@@ -33,11 +33,16 @@ export interface SetMetaResponse {
  *
  * This method requires authentication with 'write' permission.
  *
+ * @returns empty success response if it completes without error.
+ *
  * @see https://www.flickr.com/services/api/flickr.photos.setMeta.html
  */
-export async function setMeta(options: SetMetaOptions) {
-  const { credentials, photoId, title, description } = options;
-
+export async function setMeta({
+  credentials,
+  photoId,
+  title,
+  description,
+}: SetMetaOptions) {
   return requestRest<SetMetaResponse>({
     credentials,
     method: "POST",

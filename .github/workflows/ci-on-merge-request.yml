@@ -78,6 +78,17 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Initialize .env
+        shell: bash
+        run: |
+          echo "" > .env
+          echo "FLICKR_API_KEY=${{ secrets.FLICKR_API_KEY }}" >> .env
+          echo "FLICKR_CONSUMER_SECRET=${{ secrets.FLICKR_CONSUMER_SECRET }}" >> .env
+          echo "FLICKR_OAUTH_TOKEN=${{ secrets.FLICKR_OAUTH_TOKEN }}" >> .env
+          echo "FLICKR_OAUTH_TOKEN_SECRET=${{ secrets.FLICKR_OAUTH_TOKEN_SECRET }}" >> .env
+          echo "FLICKR_USER_NSID=${{ vars.FLICKR_USER_NSID }}" >> .env
+          echo "FLICKR_USER_NAME=${{ vars.FLICKR_USER_NAME }}" >> .env
+
       - name: Run Unit Tests
         run: pnpm test -- --run
 

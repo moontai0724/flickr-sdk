@@ -28,7 +28,11 @@ module.exports = {
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
-    project: ["./tsconfig.json", "./src/tsconfig.json"],
+    project: [
+      "./tsconfig.json",
+      "./src/tsconfig.json",
+      "./tests/tsconfig.json",
+    ],
   },
   rules: {
     "no-console": "off",
@@ -85,7 +89,11 @@ module.exports = {
     "import/resolver": {
       typescript: {
         alwaysTryTypes: true,
-        project: ["./tsconfig.json", "./src/tsconfig.json"],
+        project: [
+          "./tsconfig.json",
+          "./src/tsconfig.json",
+          "./tests/tsconfig.json",
+        ],
       },
     },
   },

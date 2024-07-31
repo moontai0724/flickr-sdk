@@ -5,7 +5,7 @@ export interface GetInfoOptions extends WithCredentials {
   /**
    * The ID of the photoset to fetch information for.
    */
-  photoSetId: string;
+  photosetId: string;
   /**
    * The user_id here is the owner of the set passed in photoset_id.
    */
@@ -25,14 +25,16 @@ export interface GetInfoResponse extends Omit<PhotoSet, "photos" | "videos"> {
  *
  * @see https://www.flickr.com/services/api/flickr.photosets.getInfo.html
  */
-export async function getInfo(options: GetInfoOptions) {
-  const { credentials, photoSetId, userId } = options;
-
+export async function getInfo({
+  credentials,
+  photosetId,
+  userId,
+}: GetInfoOptions) {
   return requestRest<GetInfoResponse>({
     credentials,
     params: {
       method: "flickr.photosets.getInfo",
-      photoset_id: photoSetId,
+      photoset_id: photosetId,
       user_id: userId,
     },
     key: "photoset",
