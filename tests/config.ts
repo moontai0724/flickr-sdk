@@ -9,4 +9,5 @@ export const oauthCredential = {
 
 export const user = {
   nsid: process.env.FLICKR_USER_NSID!,
+  name: process.env.FLICKR_USER_NAME!,
 };

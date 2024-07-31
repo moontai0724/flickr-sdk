@@ -2,7 +2,7 @@ export interface Paginated {
   /**
    * Current page number.
    */
-  page: number;
+  page: number | string;
   /**
    * Total amount of pages.
    */
@@ -10,7 +10,7 @@ export interface Paginated {
   /**
    * Items amount per page.
    */
-  perpage: number;
+  perpage: number | string;
   /**
    * Total amount of items.
    */

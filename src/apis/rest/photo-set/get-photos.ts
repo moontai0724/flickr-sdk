@@ -1,6 +1,5 @@
 import { requestRest } from "common/request";
 import type {
-  NumericBoolean,
   Paginated,
   Photo,
   PhotoExtras,
@@ -62,8 +61,8 @@ export interface GetPhotosOptions extends WithCredentials {
 export interface GetPhotosItem
   extends Pick<Photo, "id" | "secret" | "server" | "farm" | "title">,
     Visibility,
-    PhotoExtras {
-  isprimary: NumericBoolean;
+    Partial<PhotoExtras> {
+  isprimary: "0" | "1";
 }
 
 export interface GetPhotosResponse extends Paginated {
@@ -83,6 +82,10 @@ export interface GetPhotosResponse extends Paginated {
    */
   title: string;
   sortingOptionId: SortingOption;
+  /**
+   * Should be the same as `perpage`.
+   */
+  perPage: number | string;
 }
 
 /**
