@@ -73,11 +73,9 @@ it("should reorder photosets", async () => {
     userId: user.nsid,
   });
 
-  expect(photoset).toMatchObject(
-    expect.arrayContaining([
-      expect.objectContaining({ id: photosetIds[2] }),
-      expect.objectContaining({ id: photosetIds[0] }),
-      expect.objectContaining({ id: photosetIds[1] }),
-    ]),
-  );
+  expect(photoset).toMatchObject([
+    expect.objectContaining({ id: photosetIds[2] }),
+    expect.objectContaining({ id: photosetIds[0] }),
+    expect.objectContaining({ id: photosetIds[1] }),
+  ]);
 });

@@ -85,10 +85,8 @@ it("should remove specific photo from photoset", async () => {
   });
 
   expect(photo.length).toBe(2);
-  expect(photo).toMatchObject(
-    expect.arrayContaining([
-      expect.objectContaining({ id: photoIds[0] }),
-      expect.objectContaining({ id: photoIds[2] }),
-    ]),
-  );
+  expect(photo).toMatchObject([
+    expect.objectContaining({ id: photoIds[0] }),
+    expect.objectContaining({ id: photoIds[2] }),
+  ]);
 });

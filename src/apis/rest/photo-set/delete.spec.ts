@@ -73,10 +73,8 @@ it("should delete photoset", async () => {
     userId: user.nsid,
   });
 
-  expect(photoset).toMatchObject(
-    expect.arrayContaining([
-      expect.objectContaining({ id: photosetIds[0] }),
-      expect.objectContaining({ id: photosetIds[2] }),
-    ]),
-  );
+  expect(photoset).toMatchObject([
+    expect.objectContaining({ id: photosetIds[0] }),
+    expect.objectContaining({ id: photosetIds[2] }),
+  ]);
 });

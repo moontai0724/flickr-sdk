@@ -74,10 +74,8 @@ it("should add specific photo to photoset", async () => {
   });
 
   expect(photo.length).toBe(2);
-  expect(photo).toMatchObject(
-    expect.arrayContaining([
-      expect.objectContaining({ id: photoIds[0] }),
-      expect.objectContaining({ id: photoIds[1] }),
-    ]),
-  );
+  expect(photo).toMatchObject([
+    expect.objectContaining({ id: photoIds[0] }),
+    expect.objectContaining({ id: photoIds[1] }),
+  ]);
 });
