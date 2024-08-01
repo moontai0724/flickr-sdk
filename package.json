@@ -27,7 +27,7 @@
     "dist"
   ],
   "main": "./dist/index.umd.js",
-  "module": "./dist/index.mjs",
+  "module": "./build/index.js",
   "types": "./build/index.d.ts",
   "exports": {
     ".": {
