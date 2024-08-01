@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/moontai0724/flickr-sdk/compare/v1.1.1...v1.1.2) (2024-08-01)
+
+
+### Bug Fixes
+
+* compatible for esm + commonjs ([c660f09](https://github.com/moontai0724/flickr-sdk/commit/c660f0952b796ca193f222e312fe7f0f7b4a0b08))
+
 ## [1.1.1](https://github.com/moontai0724/flickr-sdk/compare/v1.1.0...v1.1.1) (2024-08-01)
 
 
