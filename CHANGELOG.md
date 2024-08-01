@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/moontai0724/flickr-sdk/compare/v1.1.0...v1.1.1) (2024-08-01)
+
+
+### Bug Fixes
+
+* expose es module ([4e80496](https://github.com/moontai0724/flickr-sdk/commit/4e80496f9140aab6b99c929f43ff0fd1be62d69f))
+
 # [1.1.0](https://github.com/moontai0724/flickr-sdk/compare/v1.0.0...v1.1.0) (2024-07-31)
 
 
