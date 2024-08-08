@@ -23,7 +23,13 @@ export interface ReplaceOptions extends WithCredentials {
   async?: boolean;
 }
 
-function parsePhotoInformation(text: string) {
+export interface ReplaceSyncResponse {
+  photoId?: string;
+  secret?: string;
+  originalSecret?: string;
+}
+
+function parsePhotoInformation(text: string): ReplaceSyncResponse {
   const results = text.match(
     /<photoid( secret="(?<secret>[\w]+?)")?( originalsecret="(?<originalSecret>[\w]+?)")?>(?<photoId>\d+)<\/photoid>/,
   );
@@ -35,7 +41,11 @@ function parsePhotoInformation(text: string) {
   };
 }
 
-function parseTicketInformation(text: string) {
+export interface ReplaceAsyncResponse {
+  ticketId?: string;
+}
+
+function parseTicketInformation(text: string): ReplaceAsyncResponse {
   const results = text.match(/<ticketid>([\w-]+)<\/ticketid>/);
 
   return {
@@ -54,7 +64,7 @@ async function handleResponse(response: Response, async?: number) {
   return info;
 }
 
-export type ReplaceResponse = Awaited<ReturnType<typeof handleResponse>>;
+export type ReplaceResponse = ReplaceSyncResponse | ReplaceAsyncResponse;
 
 /**
  * Replacing Photos.
@@ -68,12 +78,20 @@ export type ReplaceResponse = Awaited<ReturnType<typeof handleResponse>>;
  *
  * @see https://www.flickr.com/services/api/replace.api.html
  */
+export async function replace<P extends ReplaceOptions>({
+  credentials,
+  photo,
+  photoId,
+  async,
+}: P): Promise<
+  P extends { async: true } ? ReplaceAsyncResponse : ReplaceSyncResponse
+>;
 export async function replace({
   credentials,
   photo,
   photoId,
   async,
-}: ReplaceOptions) {
+}: ReplaceOptions): Promise<ReplaceResponse> {
   const endpoint = "https://up.flickr.com/services/replace";
 
   const params = {
