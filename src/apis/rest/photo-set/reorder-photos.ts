@@ -1,5 +1,9 @@
 import { requestRest } from "common/request";
-import type { SuccessWithoutBodyResponse, WithOAuthCredentials } from "types";
+import type {
+  SortingOption,
+  SuccessWithoutBodyResponse,
+  WithOAuthCredentials,
+} from "types";
 
 export interface ReorderPhotosOptions extends WithOAuthCredentials {
   /**
@@ -14,7 +18,9 @@ export interface ReorderPhotosOptions extends WithOAuthCredentials {
   photoIds: string[];
 }
 
-export interface ReorderPhotosResponse extends SuccessWithoutBodyResponse {}
+export interface ReorderPhotosResponse extends SuccessWithoutBodyResponse {
+  sortingOptionId: SortingOption;
+}
 
 /**
  * This method requires authentication with 'write' permission.
