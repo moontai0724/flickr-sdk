@@ -77,7 +77,10 @@ it("should reorder photos in photoset", async () => {
   });
 
   // check if the response context matches expected schema
-  expect(operationResult).toEqual({ stat: "ok" });
+  expect(operationResult).toEqual({
+    stat: "ok",
+    sortingOptionId: expect.any(String),
+  });
 
   // check if photos are removed
   const { photo } = await getPhotos({
