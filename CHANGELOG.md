@@ -1,3 +1,11 @@
+## [1.1.3](https://github.com/moontai0724/flickr-sdk/compare/v1.1.2...v1.1.3) (2024-08-09)
+
+
+### Bug Fixes
+
+* **photoset.reorderPhotos:** adjust type to undocumented api changes ([1ebe0e0](https://github.com/moontai0724/flickr-sdk/commit/1ebe0e087b986a91957540fff5c26390755a2d98))
+* type strong for upload.replace async param ([5951860](https://github.com/moontai0724/flickr-sdk/commit/59518607ef05de9d0432c6024cfb18361ff59dee))
+
 ## [1.1.2](https://github.com/moontai0724/flickr-sdk/compare/v1.1.1...v1.1.2) (2024-08-01)
 
 
