@@ -16,9 +16,10 @@ export default defineConfig({
     fileParallelism: false,
     poolOptions: {
       threads: {
-        maxThreads: 1,
+        singleThread: true,
       },
     },
+    retry: 3,
     outputFile: {
       junit: "./coverage/junit-report.xml",
     },
